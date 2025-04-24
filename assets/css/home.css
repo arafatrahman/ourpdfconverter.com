@@ -1,0 +1,13 @@
+#how-to-use .step-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgb(0 123 255 / 0.25);
+      transition: background-color 0.3s ease;
+    }
+    #how-to-use .step-icon:hover {
+      background-color: #0056b3;
+      box-shadow: 0 6px 20px rgb(0 86 179 / 0.4);
+    }

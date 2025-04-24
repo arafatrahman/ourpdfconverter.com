@@ -7,12 +7,16 @@ function renderHead($title = "PDF Converter", $metaDescription = "Convert PDFs t
     <title><?php echo $title; ?></title>
     
     
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
     <script src="assets/js/pdf.min.js"></script>
     <script src="assets/js/pdf.worker.min.js"></script>
     <script src="assets/js/jszip.min.js"></script>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/bootstrap.icons.css" />
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="assets/css/home.css" />
    
 
   </head>
@@ -57,25 +61,28 @@ function renderBody() {?>
     </div>
   </section>
   
-  <!-- Upload Section -->
-  <section id="upload" class="bg-white py-5">
-    <div class="container text-center">
-      <h4 class="fw-semibold mb-3">Upload Your PDF</h4>
-      <p class="text-muted mb-4">Drag and drop your PDF file here or click to upload.</p>
-      <label class="d-block p-5 bg-light text-primary border border-2 border-dashed rounded-3 cursor-pointer" style="cursor:pointer;">
-      <i class="bi bi-upload animated-upload"></i>
-        <span class="d-block mb-2">Click to Upload PDF</span>
-        <input type="file" id="pdf-upload" accept="application/pdf" class="d-none" />
-      </label>
-      <p id="loading" class="mt-3 text-secondary"></p>
-    </div>
+<!-- Upload Section with Drag & Drop -->
+<section id="upload" class="bg-white py-16 px-4">
+  <div class="max-w-3xl mx-auto text-center">
+    <h4 class="text-2xl fw-semibold mb-4">Upload Your PDF</h4>
+    <p class="text-muted mb-3">Drag and drop your PDF file here or click to upload.</p>
 
-    <div id="preview-area" class="row g-4 mt-5 container mx-auto"></div>
-
-    <div class="text-center">
-      <button id="download-all" class="btn btn-success mt-4 d-none">Download All as ZIP</button>
+    <div id="drop-zone" 
+         class="border border-primary border-dashed rounded py-5 px-4 mb-3"
+         style="cursor:pointer; transition: background-color 0.3s ease;">
+      <i class="bi bi-file-earmark-pdf-fill text-primary fs-1 mb-2"></i>
+      <p class="mb-0 text-primary fw-semibold">Drop your PDF here or click to select</p>
+      <input type="file" id="pdf-upload" accept="application/pdf" class="d-none" />
     </div>
-  </section>
+    <p id="loading" class="text-secondary"></p>
+  </div>
+
+  <div id="preview-area" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-4"></div>
+
+  <div class="text-center">
+    <button id="download-all" class="btn btn-success mt-4 d-none">Download All as ZIP</button>
+  </div>
+</section>
 
   <!-- Features -->
   <section id="features" class="container py-5">
@@ -101,6 +108,144 @@ function renderBody() {?>
       </div>
     </div>
   </section>
+
+  <!-- Feature Details Section -->
+<section id="feature-details" class="container py-5">
+  <h3 class="text-center fw-semibold mb-4">Feature Details</h3>
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-4">
+      <div class="border rounded p-4 h-100">
+        <h5 class="mb-3">PDF to PNG</h5>
+        <p>Convert every page of your PDF into high-quality PNG images, perfect for sharing or embedding.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="border rounded p-4 h-100">
+        <h5 class="mb-3">PDF to JPG</h5>
+        <p>Get compressed JPG versions of your PDF pages for smaller file sizes without much loss in quality.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="border rounded p-4 h-100">
+        <h5 class="mb-3">PDF to Text</h5>
+        <p>Extract the text content from your PDF files quickly to edit, search, or reuse in other documents.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="border rounded p-4 h-100">
+        <h5 class="mb-3">PDF to Word</h5>
+        <p>Convert your PDFs to editable Word documents while preserving formatting and layout as much as possible.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="border rounded p-4 h-100">
+        <h5 class="mb-3">PDF to Excel</h5>
+        <p>Extract tabular data from PDFs into Excel spreadsheets, making data analysis easier.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <div class="border rounded p-4 h-100">
+        <h5 class="mb-3">More Features</h5>
+        <p>We are continuously adding more conversion options to support your document needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How to Use Section -->
+<section id="how-to-use" class="bg-light py-5">
+  <div class="container">
+    <h3 class="text-center fw-semibold mb-5">How to Use PDF Converter</h3>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <ol class="list-unstyled d-flex flex-column gap-4 fs-5">
+          <li class="d-flex align-items-start">
+            <div class="step-icon bg-primary text-white rounded-circle flex-shrink-0 me-3">
+              <i class="bi bi-upload fs-3"></i>
+            </div>
+            <div>
+              <strong>Upload your PDF:</strong> Click or drag and drop your PDF file into the upload area.
+            </div>
+          </li>
+          <li class="d-flex align-items-start">
+            <div class="step-icon bg-primary text-white rounded-circle flex-shrink-0 me-3">
+              <i class="bi bi-hourglass-split fs-3"></i>
+            </div>
+            <div>
+              <strong>Processing:</strong> Wait as the PDF pages are converted to images; a preview will appear.
+            </div>
+          </li>
+          <li class="d-flex align-items-start">
+            <div class="step-icon bg-primary text-white rounded-circle flex-shrink-0 me-3">
+              <i class="bi bi-image fs-3"></i>
+            </div>
+            <div>
+              <strong>Download individually:</strong> Click "Download Page" links below each preview to save pages as images.
+            </div>
+          </li>
+          <li class="d-flex align-items-start">
+            <div class="step-icon bg-primary text-white rounded-circle flex-shrink-0 me-3">
+              <i class="bi bi-file-zip fs-3"></i>
+            </div>
+            <div>
+              <strong>Download all at once:</strong> Use the "Download All as ZIP" button to get every page in a single ZIP file.
+            </div>
+          </li>
+          <li class="d-flex align-items-start">
+            <div class="step-icon bg-primary text-white rounded-circle flex-shrink-0 me-3">
+              <i class="bi bi-stars fs-3"></i>
+            </div>
+            <div>
+              <strong>Explore more:</strong> Try other conversion features like PDF to Text, Word, and Excel.
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+<section id="faq" class="container py-5">
+  <h3 class="text-center fw-semibold mb-4">Frequently Asked Questions</h3>
+  <div class="accordion" id="faqAccordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq-heading-1">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-1" aria-expanded="true" aria-controls="faq-collapse-1">
+          What file formats are supported for upload?
+        </button>
+      </h2>
+      <div id="faq-collapse-1" class="accordion-collapse collapse show" aria-labelledby="faq-heading-1" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Currently, we only support PDF files for upload.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq-heading-2">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-2" aria-expanded="false" aria-controls="faq-collapse-2">
+          How do I download all pages at once?
+        </button>
+      </h2>
+      <div id="faq-collapse-2" class="accordion-collapse collapse" aria-labelledby="faq-heading-2" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          After uploading, use the "Download All as ZIP" button to download every page as PNG images bundled in a ZIP file.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq-heading-3">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-3" aria-expanded="false" aria-controls="faq-collapse-3">
+          Can I convert PDFs to formats other than images?
+        </button>
+      </h2>
+      <div id="faq-collapse-3" class="accordion-collapse collapse" aria-labelledby="faq-heading-3" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes! Our service supports conversions to JPG, Text, Word, Excel, and more. Check the Features section for all supported formats.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     
   <?php
 }

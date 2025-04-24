@@ -1,12 +1,49 @@
-const input = document.getElementById('pdf-upload');
+const dropZone = document.getElementById('drop-zone');
+    const input = document.getElementById('pdf-upload');
     const previewArea = document.getElementById('preview-area');
     const downloadAllBtn = document.getElementById('download-all');
     const loadingText = document.getElementById('loading');
     let imageDataList = [];
 
-    input.addEventListener('change', async (e) => {
-      const file = e.target.files[0];
-      if (!file || file.type !== 'application/pdf') return;
+    // Open file dialog on drop zone click
+    dropZone.addEventListener('click', () => input.click());
+
+    // Highlight drop zone on drag enter
+    dropZone.addEventListener('dragenter', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('bg-primary', 'bg-opacity-10');
+    });
+
+    // Remove highlight on drag leave or drop
+    dropZone.addEventListener('dragleave', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('bg-primary', 'bg-opacity-10');
+    });
+
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault(); // Necessary to allow drop
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('bg-primary', 'bg-opacity-10');
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        handleFile(files[0]);
+      }
+    });
+
+    input.addEventListener('change', (e) => {
+      if (e.target.files.length > 0) {
+        handleFile(e.target.files[0]);
+      }
+    });
+
+    async function handleFile(file) {
+      if (!file || file.type !== 'application/pdf') {
+        alert('Please upload a valid PDF file.');
+        return;
+      }
 
       loadingText.textContent = 'Processing PDF...';
       imageDataList = [];
@@ -31,11 +68,13 @@ const input = document.getElementById('pdf-upload');
           imageDataList.push(imgData);
 
           const col = document.createElement('div');
-          col.className = 'col-12 col-sm-6 col-md-4';
+          col.className = 'col';
           col.innerHTML = `
-            <div class="bg-white p-3 rounded shadow-sm text-center">
-            <img src="${imgData}" alt="Page ${i}" class="img-fluid rounded mb-2"/>
-            <a href="${imgData}" download="page-${i}.png" class="btn btn-outline-success btn-sm mt-2">Download Page ${i}</a>
+            <div class="card h-100 shadow-sm">
+              <img src="${imgData}" alt="Page ${i}" class="card-img-top rounded" />
+              <div class="card-body text-center">
+                <a href="${imgData}" download="page-${i}.png" class="btn btn-link text-primary">Download Page ${i}</a>
+              </div>
             </div>
           `;
           previewArea.appendChild(col);
@@ -45,7 +84,7 @@ const input = document.getElementById('pdf-upload');
         loadingText.textContent = '';
       };
       reader.readAsArrayBuffer(file);
-    });
+    }
 
     downloadAllBtn.addEventListener('click', async () => {
       const zip = new JSZip();

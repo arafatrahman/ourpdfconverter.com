@@ -18,5 +18,6 @@ renderFooter();
 <!-- Include JS logic (can be separated if needed) -->
 <script src="assets/js/main.js"></script>
 
+
 </body>
 </html>
