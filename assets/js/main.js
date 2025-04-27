@@ -73,7 +73,7 @@ const dropZone = document.getElementById('drop-zone');
             <div class="card h-100 shadow-sm">
               <img src="${imgData}" alt="Page ${i}" class="card-img-top rounded" />
               <div class="card-body text-center">
-                <a href="${imgData}" download="page-${i}.png" class="btn btn-link text-primary">Download Page ${i}</a>
+                <a href="${imgData}" download="page-${i}.png" class="btn btn-success">Download Page ${i}</a>
               </div>
             </div>
           `;

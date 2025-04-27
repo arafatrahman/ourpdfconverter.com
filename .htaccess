@@ -1,0 +1,42 @@
+# Use UTF-8 encoding
+AddDefaultCharset UTF-8
+
+# Enable mod_rewrite (URL rewriting)
+RewriteEngine On
+
+# Force WWW or non-WWW (Pick one — here is non-WWW)
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Friendly URLs (remove .php extension)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([a-zA-Z0-9-]+)/?$ pages/$1.php [L]
+
+# Block direct PHP access except index.php
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s.*\.php\sHTTP/
+RewriteCond %{REQUEST_URI} !/index\.php$
+RewriteRule .* - [F,L]
+
+
+
+# Allow public assets (images, css, js)
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|css|js|woff|woff2|ttf|svg|eot)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+</IfModule>
+
+# Redirect old pages if needed (example)
+# Redirect 301 /old-page /new-page
+
+# Sitemap location
+# Sitemap: https://ourpdfconverter.com/sitemap.xml
+
+# Robots.txt location (optional, if using virtual robots)
+# Redirect 301 /robots.txt /path/to/robots.txt
+
