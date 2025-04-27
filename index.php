@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 <!DOCTYPE html>
 <html lang="en">
 <?php renderHead("PDF Converter", "Upload a PDF and convert it to image or text formats instantly."); ?>
-<body class="bg-light text-dark">
+<body class="text-dark">
 
 <?php 
 
