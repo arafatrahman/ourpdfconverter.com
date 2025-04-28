@@ -12,10 +12,10 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Friendly URLs (remove .php extension)
+# Friendly URLs for "pages" folder (remove .php extension)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([a-zA-Z0-9-]+)/?$ pages/$1.php [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ pages/$1.php [L]
 
 # Block direct PHP access except index.php
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s.*\.php\sHTTP/

@@ -151,7 +151,7 @@ function renderBody() {?>
       <div class="col-6 col-md-4 col-lg-2">
       <a href="https://ourpdfconverter.com/pdf-to-png-converter" class="text-decoration-none" style="color: red;">
           <div class="p-3 bg-white rounded shadow-sm"><?php echo _("PDF to PNG"); ?></div>
-      </a>
+        </a>
       </div>
       <div class="col-6 col-md-4 col-lg-2">
       <a href="https://ourpdfconverter.com/" class="text-decoration-none" style="color: red;">

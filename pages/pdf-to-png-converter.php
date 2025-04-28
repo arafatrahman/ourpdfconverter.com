@@ -1,88 +1,55 @@
-<?php
-function renderHead() {?>
-  <head>
-    
-  <meta name="description" content="Use our free PDF to images converter online to quickly turn PDF pages into JPG, PNG, or other image formats. No installation or registration required.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="PDF to Images Converter Online - Free & Fast Tool">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ourpdfconverter.com/">
-  <meta property="og:image" content="https://ourpdfconverter.com/assets/images/how-to-convert-image-to-pdf.png">
-  <meta property="og:site_name" content="Our PDF Converter">
-  <meta property="og:description" content="Convert PDF to images online for free. Fast and easy tool to transform PDF pages into JPG, PNG, and more — no software or signup needed.">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@ourpdfconverter">
-  <meta name="twitter:creator" content="@ourpdfconverter">
-  <meta name="twitter:title" content="PDF to Images Converter Online - Free, Fast, No Signup">
-  <meta name="twitter:description" content="Easily convert PDF to images online. Free, secure, and no installation required. Supports JPG, PNG, and more.">
-  <meta name="twitter:image" content="https://ourpdfconverter.com/assets/images/how-to-convert-image-to-pdf.png">
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+<?php 
 
-    <script src="assets/js/pdf.min.js"></script>
-    <script src="assets/js/pdf.worker.min.js"></script>
-    <script src="assets/js/jszip.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+ include 'pages-components.php';
+ 
+ ?>
+<!DOCTYPE html>
+<html lang="en">
+<meta name="description" content="Use our free PDF to images converter online to quickly turn PDF pages into JPG, PNG, or other image formats. No installation or registration required.">
+<meta name="keywords" content="PDF to PNG, PDF to JPG, PDF to image converter, online PDF converter, free PDF converter, convert PDF to images, PDF to PNG online, PDF to JPG online">
+<meta name="author" content="Our PDF Converter">
+<title><?php echo _("PDF to PNG Converter Online - Free & Easy Tool"); ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="PDF to PNG Converter Online - Free & Fast Tool">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ourpdfconverter.com/">
+<meta property="og:image" content="https://ourpdfconverter.com/assets/images/how-to-convert-image-to-pdf.png">
+<meta property="og:site_name" content="PDF to PNG Converter">
+<meta property="og:description" content="Convert PDF to PNG images online for free. Fast and easy tool to transform PDF pages into PNG format — no software or signup required.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@pdftopngconverter">
+<meta name="twitter:creator" content="@pdftopngconverter">
+<meta name="twitter:title" content="PDF to PNG Converter Online - Free, Fast, No Signup">
+<meta name="twitter:description" content="Easily convert PDF to PNG images online. Free, secure, and no installation required. Supports PNG format and more.">
+<meta name="twitter:image" content="https://ourpdfconverter.com/assets/images/how-to-convert-pdf-to-png.png">
+<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 
 
-    <link rel="stylesheet" href="assets/css/home.css" />
-    <link rel="stylesheet" href="assets/css/post.css" />
+<script src="assets/js/pdf.min.js"></script>
+<script src="assets/js/pdf.worker.min.js"></script>
+<script src="assets/js/jszip.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/home.css" />
    
 
-  </head>
-<?php
-}
+<body class="text-dark">
+<?php 
 
-function renderNavbar() {?>
-  <!-- Navbar -->
-  <!-- Responsive Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-    <div class="container">
-      <a class="navbar-brand text-primary fw-bold d-flex align-items-center" href="https://ourpdfconverter.com/">
-        <img src="assets/images/our-pdf-converter-logo.png" alt="<?php echo _("PDF Converter Logo"); ?>" class="me-2" style="height: 60px;width: 250px;" />
-       
-      </a>
-
-      <!-- Toggler for mobile -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Navbar links -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="#"><?php echo _("Home"); ?></a></li>
-            <li class="nav-item"><a class="nav-link" href="#upload"><?php echo _("Upload PDF"); ?></a></li>
-            <li class="nav-item"><a class="nav-link" href="#features"><?php echo _("Features"); ?></a></li>
-            <li class="nav-item"><a class="nav-link" href="#how-to-use"><?php echo _("How to Use"); ?></a></li>
-            <li class="nav-item"><a class="nav-link" href="#faq"><?php echo _("FAQ"); ?></a></li>
-          
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <?php
-}
-
-function renderFooter() {?>
-  <!-- Footer -->
-  <footer class="text-center py-4 text-muted bg-light">
-    &copy; <?php echo date("Y"); ?> <?php echo _("Our PDF Converter"); ?>. <?php echo _("All rights reserved."); ?>
-  </footer>
-  <?php
-}
-
-function renderBody() {?>
-   
+renderNavbar();
+?>
 
 
   <!-- Hero -->
   <section class="text-center py-5 text-white upload-pdf-hero-section">
     <div class="container">
-      <h2 class="display-5 fw-bold mb-3"><?php echo _("Convert PDF to Images in Seconds | Fast, Free & Easy Online Tool"); ?></h2>
-      <p class="lead mb-4"><?php echo _("Need to turn your  into images quickly? You’re in the right place. Our tool lets you convert your PDF files into high-quality images like JPG or PNG — all online, for free, and without signing up."); ?></p>
+      <h2 class="display-5 fw-bold mb-3"><?php echo _("PDF to PNG Converter: Effortlessly Convert Your PDFs to High-Quality PNG Images"); ?></h2>
+      <p class="lead mb-4"><?php echo _("In today’s digital world, converting files between different formats is an essential task for many professionals and casual users alike. One such common conversion is from PDF to PNG, a widely used image format. Whether you're working on a website, creating presentations, or simply need high-quality images from PDF files, a PDF to PNG converter can make this process simple and efficient."); ?></p>
       <a href="#upload" class="btn btn-light btn-lg text-primary"><?php echo _("Try Free Now"); ?></a>
     </div>
   </section>
@@ -117,9 +84,9 @@ function renderBody() {?>
     <img src="assets/images/What-is-PDF-to-Image-Converter.jpg" alt="What is PDF to Image Converter" />
   </div>
   <div class="text-container">
-    <h2><?php echo _("What is PDF to Image Converter?"); ?></h2>
-    <p><?php echo _("PDF files are versatile document formats that preserve your text, images, and layouts exactly as intended, regardless of device or platform. However,  are documents—not image files—which means you can’t upload them directly to platforms that only accept images, like Instagram or many social networks."); ?></p>
-    <p><?php echo _("By conversting  to images (such as JPG, PNG, or TIFF), you gain the flexibility to share, edit, and use your content more widely."); ?></p>
+    <h2><?php echo _("What is a PDF to PNG Converter?"); ?></h2>
+    <p><?php echo _("A PDF to PNG converter is a software tool or online service that allows users to convert PDF files into PNG images. PNG (Portable Network Graphics) is a popular image format that supports lossless compression, transparency, and high-quality images. Unlike PDF files, which are primarily used for document formatting, PNG is designed for images, making it ideal for visual content."); ?></p>
+   
   </div>
 </section>
   
@@ -131,12 +98,13 @@ function renderBody() {?>
     <img src="assets/images/why-should-youconvert-pdf.jpg" alt="Why Should You Convert" />
   </div>
   <div class="text-container">
-    <h2><?php echo _("Why Should You Convert PDF to JPG or PNG?"); ?></h2>
+    <h2><?php echo _("Why Convert PDF to PNG?"); ?></h2>
+    <p><?php echo _("Converting PDFs to PNG images can be beneficial for several reasons:"); ?></p>
     <ul>
-      <li><strong><?php echo _("Share on Social Media:"); ?></strong> <?php echo _("Got a flyer or brochure in PDF? Convert it to JPG and post it on Instagram, Facebook, Twitter, or anywhere else."); ?></li>
-      <li><strong><?php echo _("Edit Easily:"); ?></strong> <?php echo _("Want to tweak your PDF pages using photo editors like Photoshop or Lightroom? Images make it possible."); ?></li>
-      <li><strong><?php echo _("Save Space:"); ?></strong> <?php echo _("Images often take up less room than ."); ?></li>
-      <li><strong><?php echo _("Print Without Hassle:"); ?></strong> <?php echo _("Image files print consistently, page by page."); ?></li>
+      <li><strong><?php echo _("Quality Preservation:"); ?></strong> <?php echo _("PNG is a high-quality image format that retains all the details of the original PDF, making it perfect for graphics and illustrations."); ?></li>
+      <li><strong><?php echo _("Image Editing:"); ?></strong> <?php echo _("Once converted, the PDF content can be easily edited using image editing software like Photoshop or GIMP."); ?></li>
+      <li><strong><?php echo _("Web Use:"); ?></strong> <?php echo _("PNG images are widely supported across the web, making it easy to embed them into websites, blogs, and social media platforms."); ?></li>
+      <li><strong><?php echo _("Printing:"); ?></strong> <?php echo _("If you need to print your PDF content as an image, PNG is a reliable format that maintains high resolution."); ?></li>
     </ul>
   </div>
 
@@ -148,10 +116,10 @@ function renderBody() {?>
     <p class="text-center"><?php echo _("Our PDF converter supports a variety of formats, allowing you to convert your  into images or other document types. Whether you need high-quality images for sharing or editable documents for further editing, we’ve got you covered."); ?></p>
      
     <div class="row text-center g-3">
-      <div class="col-6 col-md-4 col-lg-2">
+    <div class="col-6 col-md-4 col-lg-2">
       <a href="https://ourpdfconverter.com/pdf-to-png-converter" class="text-decoration-none" style="color: red;">
           <div class="p-3 bg-white rounded shadow-sm"><?php echo _("PDF to PNG"); ?></div>
-      </a>
+        </a>
       </div>
       <div class="col-6 col-md-4 col-lg-2">
       <a href="https://ourpdfconverter.com/" class="text-decoration-none" style="color: red;">
@@ -191,57 +159,12 @@ function renderBody() {?>
     </div>
   </section>
 
-  <!-- Feature Details Section -->
-<section id="feature-details" class="container py-5 pdf-features-details-section">
-  <h3 class="text-center fw-semibold mb-4"><?php echo _("Feature Details"); ?></h3>
-  <p class="text-center"><?php echo _("Explore the powerful features that make our converter stand out. Fast, secure, and hassle-free conversions at your fingertips. From batch processing to extracting images, our tool offers a range of features to make your PDF conversions simple and efficient. Plus, it's 100% free, no sign-up required!"); ?></p>
-  <div class="row g-4">
-    <div class="col-md-6 col-lg-4">
-      <div class="border rounded p-4 h-100">
-        <h5 class="mb-3"><?php echo _("PDF to PNG"); ?></h5>
-        <p><?php echo _("Convert every page of your PDF into high-quality PNG images, perfect for sharing or embedding."); ?></p>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <div class="border rounded p-4 h-100">
-        <h5 class="mb-3"><?php echo _("PDF to JPG"); ?></h5>
-        <p><?php echo _("Get compressed JPG versions of your PDF pages for smaller file sizes without much loss in quality."); ?></p>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <div class="border rounded p-4 h-100">
-        <h5 class="mb-3"><?php echo _("PDF to Text"); ?></h5>
-        <p><?php echo _("Extract the text content from your PDF files quickly to edit, search, or reuse in other documents."); ?></p>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <div class="border rounded p-4 h-100">
-        <h5 class="mb-3"><?php echo _("PDF to Word"); ?></h5>
-        <p><?php echo _("Convert your  to editable Word documents while preserving formatting and layout as much as possible."); ?></p>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <div class="border rounded p-4 h-100">
-        <h5 class="mb-3"><?php echo _("PDF to Excel"); ?></h5>
-        <p><?php echo _("Extract tabular data from  into Excel spreadsheets, making data analysis easier."); ?></p>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <div class="border rounded p-4 h-100">
-        <h5 class="mb-3"><?php echo _("More Features"); ?></h5>
-        <p><?php echo _("We are continuously adding more conversion options to support your document needs."); ?></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 
 <!-- How to Use Section -->
 <section id="how-to-use" class="bg-light py-5 pdf-how-to-use-section">
   <div class="container">
-    <h3 class="text-center fw-semibold mb-5"><?php echo _("How to Use PDF Converter"); ?></h3>
-    <p class="text-center mb-4"><?php echo _("Follow these simple steps to convert your PDF files into images or other formats. Turning your  into images is simple and fast with our tool. Just upload your file, let us handle the conversion, and download your images in a few clicks — no tech skills needed!"); ?></p>
+    <h3 class="text-center fw-semibold mb-5"><?php echo _("How to Convert PDF to PNG: A Step-by-Step Guide"); ?></h3>
+    <p class="text-center mb-4"><?php echo _("Our Pdf Coverter allow you to convert PDF files to PNG images without installing any software. Here’s a quick guide:"); ?></p>
     <div class="row justify-content-center">
       <div class="col-md-8">
       <ol class="list-unstyled d-flex flex-column gap-4 fs-5">
@@ -291,21 +214,57 @@ function renderBody() {?>
   </div>
 </section>
 
+<section class="pdf-converter-info-section" id="feature-details" >
+
+<div class="image-container">
+    <img src="assets/images/why-should-youconvert-pdf.jpg" alt="Why Should You Convert" />
+  </div>
+  <div class="text-container">
+    <h2><?php echo _("Key Features to Look for in a PDF to PNG Converter"); ?></h2>
+    <p><?php echo _("When choosing a PDF to PNG converter, consider the following features for the best results:"); ?></p>
+    <ul>
+      <li><strong><?php echo _("Batch Conversion:"); ?></strong> <?php echo _("Ability to convert multiple PDF files to PNG images at once."); ?></li>
+      <li><strong><?php echo _("Security:"); ?></strong> <?php echo _("Ensure the tool you choose respects your privacy and does not store your files after conversion."); ?></li>
+      <li><strong><?php echo _("Ease of Use:"); ?></strong> <?php echo _("A user-friendly interface will make the conversion process faster and more efficient."); ?></li>
+      <li><strong><?php echo _("Conversion Speed:"); ?></strong> <?php echo _("Especially important if you need to convert large PDFs or work on tight deadlines"); ?></li>
+    </ul>
+  </div>
+
+</section>
+
+<section  id="feature-details" class="pdf-converter-info-section" >
+
+<div class="image-container">
+    <img src="assets/images/why-should-youconvert-pdf.jpg" alt="Why Should You Convert" />
+  </div>
+  <div class="text-container">
+    <h2><?php echo _("Tips for Optimizing PNG Images After Conversion"); ?></h2>
+    <p><?php echo _("Once you’ve converted your PDFs to PNG images, here are some tips to make sure the images are optimized for web use and print:"); ?></p>
+    <ul>
+      <li><strong><?php echo _("Compress the Images:"); ?></strong> <?php echo _("Use tools like TinyPNG (https://tinypng.com/) to compress PNG files without losing quality, which will improve your website's load times."); ?></li>
+      <li><strong><?php echo _("Adjust the Resolution:"); ?></strong> <?php echo _(" Ensure the resolution is appropriate for your use case. For web use, 72 DPI is often enough, while for print, 300 DPI is recommended."); ?></li>
+      <li><strong><?php echo _("Use Transparent Backgrounds:"); ?></strong> <?php echo _("If you need a transparent background, make sure to select the “transparent background” option during conversion or use a tool like GIMP to edit it afterward."); ?></li>
+    </ul>
+  </div>
+
+</section>
+
+
   <!-- FAQ Section -->
   <section id="faq" class="container py-5 pdf-faq-section">
-  <h3 class="text-center fw-semibold mb-4"><?php echo _("Frequently Asked Questions About PDF to Image Converter"); ?></h3>
-  <p class="text-center mb-4"><?php echo _("Have questions about converting  to images? Browse our FAQ to learn how our PDF to Image Converter works, supported file types, troubleshooting tips, and expert advice to optimize your conversions. Need more help? Our support team is ready to assist you!"); ?></p>
+  <h3 class="text-center fw-semibold mb-4"><?php echo _("Frequently Asked Questions About PDF to PNG Converter"); ?></h3>
+  <p class="text-center mb-4"><?php echo _("Have questions about converting  to PNG? Browse our FAQ to learn how our PDF to Image Converter works, supported file types, troubleshooting tips, and expert advice to optimize your conversions. Need more help? Our support team is ready to assist you!"); ?></p>
   <div class="accordion" id="faqAccordion">
     
     <div class="accordion-item">
       <h2 class="accordion-header" id="faq-heading-1">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-1" aria-expanded="true" aria-controls="faq-collapse-1">
-          <?php echo _("What file formats are supported for upload to the PDF to Image Converter?"); ?>
+          <?php echo _("What file formats are supported for upload to the PDF to PNG Converter?"); ?>
         </button>
       </h2>
       <div id="faq-collapse-1" class="accordion-collapse collapse show" aria-labelledby="faq-heading-1" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-            <?php echo _("Currently, we support only PDF files for upload. Simply upload your PDF and convert it into high-quality image formats like PNG or JPG."); ?>
+            <?php echo _("Currently, we support only PDF files for upload. Simply upload your PDF and convert it into high-quality image formats like PNG"); ?>
         </div>
       </div>
     </div>
@@ -313,7 +272,7 @@ function renderBody() {?>
     <div class="accordion-item">
       <h2 class="accordion-header" id="faq-heading-2">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-2" aria-expanded="false" aria-controls="faq-collapse-2">
-            <?php echo _("How can I download all converted images from my PDF at once?"); ?>
+            <?php echo _("How can I download all converted PNG from my PDF at once?"); ?>
         </button>
       </h2>
       <div id="faq-collapse-2" class="accordion-collapse collapse" aria-labelledby="faq-heading-2" data-bs-parent="#faqAccordion">
@@ -326,12 +285,12 @@ function renderBody() {?>
     <div class="accordion-item">
       <h2 class="accordion-header" id="faq-heading-3">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-3" aria-expanded="false" aria-controls="faq-collapse-3">
-            <?php echo _("Can I convert my PDF to other formats besides images?"); ?>
+            <?php echo _("Can I convert my PDF to other formats besides PNG?"); ?>
         </button>
       </h2>
       <div id="faq-collapse-3" class="accordion-collapse collapse" aria-labelledby="faq-heading-3" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-            <?php echo _("Yes! In addition to converting PDF to image (PNG, JPG), our tool also supports converting  into editable formats like Word, Excel, and Text. Visit our Features section for full details."); ?>
+            <?php echo _("Yes! In addition to converting PDF to PNG, our tool also supports converting  into editable formats like Word, Excel, and Text. Visit our Features section for full details."); ?>
         </div>
       </div>
     </div>
@@ -344,7 +303,7 @@ function renderBody() {?>
       </h2>
       <div id="faq-collapse-4" class="accordion-collapse collapse" aria-labelledby="faq-heading-4" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-            <?php echo _("Our PDF to Image Converter currently supports PDF files up to 50MB in size. For larger documents, consider compressing your PDF before uploading."); ?>
+            <?php echo _("Our PDF to PNG Converter currently supports PDF files up to 50MB in size. For larger documents, consider compressing your PDF before uploading."); ?>
         </div>
       </div>
     </div>
@@ -352,7 +311,7 @@ function renderBody() {?>
     <div class="accordion-item">
       <h2 class="accordion-header" id="faq-heading-5">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-5" aria-expanded="false" aria-controls="faq-collapse-5">
-            <?php echo _("Are my uploaded  and converted images safe and private?"); ?>
+            <?php echo _("Are my uploaded  and converted PNG safe and private?"); ?>
         </button>
       </h2>
       <div id="faq-collapse-5" class="accordion-collapse collapse" aria-labelledby="faq-heading-5" data-bs-parent="#faqAccordion">
@@ -365,12 +324,25 @@ function renderBody() {?>
     <div class="accordion-item">
       <h2 class="accordion-header" id="faq-heading-6">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-6" aria-expanded="false" aria-controls="faq-collapse-6">
-            <?php echo _("Do I need to install any software to use the PDF to Image Converter?"); ?>
+            <?php echo _("Do I need to install any software to use the PDF to PNG Converter?"); ?>
         </button>
       </h2>
       <div id="faq-collapse-6" class="accordion-collapse collapse" aria-labelledby="faq-heading-6" data-bs-parent="#faqAccordion">
         <div class="accordion-body">
-            <?php echo _("No software installation required! Our PDF to Image tool is 100% online. You can convert  to images directly in your browser with no downloads needed."); ?>
+            <?php echo _("No software installation required! Our PDF to PNG tool is 100% online. You can convert to PNG directly in your browser with no downloads needed."); ?>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq-heading-7">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-7" aria-expanded="false" aria-controls="faq-collapse-7">
+            <?php echo _("What is the difference between PNG and JPG?"); ?>
+        </button>
+      </h2>
+      <div id="faq-collapse-7" class="accordion-collapse collapse" aria-labelledby="faq-heading-7" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+            <?php echo _("PNG is a lossless format that preserves all image details and supports transparency, while JPG is a lossy format that compresses images to reduce file size but may lose quality."); ?>
         </div>
       </div>
     </div>
@@ -379,9 +351,16 @@ function renderBody() {?>
 </section>
 
 
-  <?php
-}
 
 
 
+<?php
+renderFooter(); 
 ?>
+
+
+<script src="assets/js/pdftopng.min.js"></script>
+
+
+</body>
+</html>
